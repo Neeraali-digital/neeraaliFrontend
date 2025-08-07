@@ -160,25 +160,10 @@ src/app/
 - `angular.json` - Angular CLI configuration
 - `.github/workflows/deploy.yml` - GitHub Actions CI/CD
 
-## 📞 Contact Information
-
-- **Phone:** +1 (555) 123-4567
-- **Email:** hello@neeralidigital.com
-- **Website:** [Your deployed URL]
-
+\
 ## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
 4. Submit a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
----
-
-**Built with ❤️ using Angular 17+, Tailwind CSS, and modern web technologies**
-
-🌟 **Ready for production deployment on Vercel, Netlify, or any static hosting provider!**
