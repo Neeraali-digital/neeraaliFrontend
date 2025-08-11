@@ -6,31 +6,35 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // Brand Primary - Red
         primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
-          950: '#082f49',
+          50: '#fef2f2',
+          100: '#fee2e2',
+          200: '#fecaca',
+          300: '#fca5a5',
+          400: '#f87171',
+          500: '#ee2555', // Main brand red
+          600: '#dc1f4a',
+          700: '#b91c3c',
+          800: '#991b1b',
+          900: '#7f1d1d',
+          950: '#450a0a',
         },
+        // Brand Secondary - Yellow
         accent: {
           50: '#fefce8',
           100: '#fef9c3',
           200: '#fef08a',
-          300: '#fde047',
+          300: '#fde047', // Main brand yellow
           400: '#facc15',
           500: '#eab308',
           600: '#ca8a04',
           700: '#a16207',
           800: '#854d0e',
           900: '#713f12',
+          950: '#365314',
         },
+        // Modern Grays for Professional Look
         neutral: {
           50: '#fafafa',
           100: '#f5f5f5',
@@ -44,14 +48,18 @@ module.exports = {
           900: '#171717',
           950: '#0a0a0a',
         },
+        // Brand Colors
         brand: {
           red: '#ee2555',
-          yellow: '#fdde44',
+          yellow: '#fde047',
+          'red-light': '#fef2f2',
+          'yellow-light': '#fefce8',
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
         display: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       animation: {
         'fade-in': 'fadeIn 0.8s ease-out',
@@ -117,9 +125,12 @@ module.exports = {
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       boxShadow: {
-        'glow': '0 0 20px rgba(14, 165, 233, 0.3)',
-        'glow-lg': '0 0 40px rgba(14, 165, 233, 0.4)',
-        'soft': '0 2px 40px rgba(0, 0, 0, 0.1)',
+        'brand': '0 4px 20px rgba(238, 37, 85, 0.15)',
+        'brand-lg': '0 8px 40px rgba(238, 37, 85, 0.2)',
+        'accent': '0 4px 20px rgba(253, 224, 71, 0.15)',
+        'soft': '0 2px 20px rgba(0, 0, 0, 0.08)',
+        'modern': '0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06)',
+        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
       },
       borderRadius: {
         '4xl': '2rem',

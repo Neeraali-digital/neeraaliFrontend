@@ -8,21 +8,45 @@ import { AnimationUtil } from '../../shared/utils/animation.util';
   standalone: true,
   imports: [CommonModule, ServiceCardComponent],
   template: `
-    <section class="pt-24 pb-16 bg-gradient-to-r from-primary-600 to-primary-800 text-white">
-      <div class="container-custom text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6 fade-in">Our Services</h1>
-        <p class="text-xl max-w-3xl mx-auto text-primary-100 fade-in">
-          Comprehensive digital marketing solutions designed to elevate your brand 
-          and drive measurable results across all channels.
+    <!-- Hero Section -->
+    <section class="pt-28 pb-20 bg-gradient-light relative overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute top-20 left-10 w-20 h-20 bg-primary-500/10 rounded-full animate-float"></div>
+      <div class="absolute bottom-20 right-16 w-16 h-16 bg-accent-300/10 rounded-full animate-float" style="animation-delay: -2s;"></div>
+      
+      <div class="container-custom text-center relative z-10">
+        <div class="mb-8">
+          <span class="inline-flex items-center px-6 py-3 rounded-full text-sm font-bold tracking-wider uppercase bg-primary-50 text-primary-600 border border-primary-200">
+            <span class="material-icons text-lg mr-2">star</span>
+            PREMIUM PR SERVICES
+          </span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight animate-fade-in-up">
+          <span class="block text-neutral-900">ELEVATE YOUR</span>
+          <span class="block text-gradient-brand">BRAND STORY</span>
+        </h1>
+        <p class="text-xl md:text-2xl max-w-4xl mx-auto text-neutral-700 leading-relaxed animate-fade-in-up">
+          World-class PR and digital marketing solutions that transform brands into 
+          <span class="text-primary-600 font-bold">industry leaders</span> through strategic storytelling.
         </p>
       </div>
     </section>
 
-    <section class="section-padding bg-gray-50">
+    <!-- Services Grid -->
+    <section class="section-padding bg-white">
       <div class="container-custom">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
+            Our <span class="text-gradient-brand">Expertise</span>
+          </h2>
+          <p class="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+            Comprehensive PR and digital marketing services designed to amplify your brand's voice
+          </p>
+        </div>
+        
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div *ngFor="let service of services; let i = index" 
-               class="slide-up"
+               class="animate-fade-in-up"
                [style.animation-delay.ms]="i * 100">
             <app-service-card [service]="service"></app-service-card>
           </div>
@@ -30,46 +54,69 @@ import { AnimationUtil } from '../../shared/utils/animation.util';
       </div>
     </section>
 
-    <section class="section-padding bg-white">
+    <!-- Process Section -->
+    <section class="section-padding bg-section-light">
       <div class="container-custom">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Our <span class="text-gradient">Process</span>
+          <div class="mb-6">
+            <span class="inline-flex items-center px-6 py-3 rounded-full text-sm font-bold tracking-wider uppercase bg-accent-50 text-accent-700 border border-accent-200">
+              <span class="material-icons text-lg mr-2">timeline</span>
+              OUR METHODOLOGY
+            </span>
+          </div>
+          <h2 class="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
+            Proven <span class="text-gradient-brand">Process</span>
           </h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            A proven methodology that ensures every project delivers exceptional results
+          <p class="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+            A strategic methodology that ensures every campaign delivers exceptional results and measurable impact
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div *ngFor="let step of processSteps; let i = index" 
-               class="text-center slide-up"
+               class="text-center animate-fade-in-up"
                [style.animation-delay.ms]="i * 150">
-            <div class="relative mb-6">
-              <div class="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+            <div class="relative mb-8">
+              <div class="w-20 h-20 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-black shadow-brand">
                 {{i + 1}}
               </div>
               <div *ngIf="i < processSteps.length - 1" 
-                   class="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-gray-300 transform translate-x-8"></div>
+                   class="hidden md:block absolute top-10 left-1/2 w-full h-1 bg-gradient-to-r from-primary-200 to-accent-200 transform translate-x-10 rounded-full"></div>
             </div>
-            <h3 class="text-lg font-semibold text-gray-900 mb-2">{{step.title}}</h3>
-            <p class="text-gray-600">{{step.description}}</p>
+            <h3 class="text-xl font-bold text-neutral-900 mb-4">{{step.title}}</h3>
+            <p class="text-neutral-600 leading-relaxed">{{step.description}}</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section-padding bg-primary-600 text-white">
-      <div class="container-custom text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">
-          Ready to Get Started?
-        </h2>
-        <p class="text-xl mb-8 max-w-2xl mx-auto text-primary-100">
-          Let's discuss how our services can help transform your digital presence
-        </p>
-        <a href="/contact" class="btn-primary bg-white text-primary-600 hover:bg-gray-100">
-          Start Your Project
-        </a>
+    <!-- CTA Section -->
+    <section class="section-padding bg-gradient-brand text-white relative overflow-hidden">
+      <!-- Background Pattern -->
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 30% 70%, white 2px, transparent 2px); background-size: 40px 40px;"></div>
+      </div>
+      
+      <div class="container-custom text-center relative z-10">
+        <div class="animate-fade-in-up">
+          <div class="mb-8">
+            <span class="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-bold tracking-wider uppercase">
+              <span class="material-icons text-lg mr-2">rocket_launch</span>
+              READY TO DOMINATE?
+            </span>
+          </div>
+          <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight">
+            <span class="block">Ready to Transform</span>
+            <span class="block text-accent-300">Your Brand?</span>
+          </h2>
+          <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
+            Let's craft a legendary story that sets your brand apart from the competition
+          </p>
+          <a routerLink="/contact" class="btn-accent inline-flex items-center group">
+            <span class="material-icons mr-2 group-hover:rotate-12 transition-transform duration-300">campaign</span>
+            Start Your Campaign
+          </a>
+        </div>
       </div>
     </section>
   `
@@ -77,59 +124,59 @@ import { AnimationUtil } from '../../shared/utils/animation.util';
 export class ServicesComponent implements OnInit {
   services: Service[] = [
     {
-      title: 'Brand Identity',
-      description: 'Create a memorable brand that resonates with your target audience and stands out in the market.',
-      icon: 'palette',
-      features: ['Logo Design', 'Brand Guidelines', 'Visual Identity', 'Brand Strategy']
-    },
-    {
-      title: 'Digital Marketing',
-      description: 'Comprehensive digital strategies that drive traffic, engagement, and conversions.',
+      title: 'Strategic PR Campaigns',
+      description: 'Comprehensive public relations strategies that build brand authority and drive meaningful engagement.',
       icon: 'campaign',
-      features: ['SEO Optimization', 'Content Marketing', 'Email Campaigns', 'Marketing Automation']
+      features: ['Media Relations', 'Press Releases', 'Thought Leadership', 'Brand Positioning']
     },
     {
-      title: 'Web Solutions',
-      description: 'Modern, responsive websites that convert visitors into customers.',
-      icon: 'web',
-      features: ['Responsive Design', 'E-commerce', 'CMS Integration', 'Performance Optimization']
+      title: 'Crisis Management',
+      description: 'Expert crisis communication strategies that protect and restore your brand reputation.',
+      icon: 'shield',
+      features: ['Crisis Planning', 'Rapid Response', 'Reputation Recovery', 'Stakeholder Communication']
     },
     {
-      title: 'Social Media Services',
-      description: 'Build and engage your community across all major social platforms.',
-      icon: 'share',
-      features: ['Content Creation', 'Community Management', 'Social Strategy', 'Influencer Outreach']
+      title: 'Brand Storytelling',
+      description: 'Compelling narratives that connect with audiences and differentiate your brand in the market.',
+      icon: 'auto_stories',
+      features: ['Brand Narrative', 'Content Strategy', 'Visual Storytelling', 'Message Architecture']
     },
     {
-      title: 'Creative Design',
-      description: 'Eye-catching designs that communicate your message effectively.',
-      icon: 'brush',
-      features: ['Graphic Design', 'UI/UX Design', 'Print Materials', 'Digital Assets']
+      title: 'Media Relations',
+      description: 'Strategic media outreach that secures high-impact coverage and builds industry relationships.',
+      icon: 'newspaper',
+      features: ['Press Outreach', 'Media Training', 'Interview Coordination', 'Relationship Building']
     },
     {
-      title: 'Paid Ads',
-      description: 'Targeted advertising campaigns that maximize your ROI across all platforms.',
-      icon: 'ads_click',
-      features: ['Google Ads', 'Facebook Ads', 'LinkedIn Ads', 'Campaign Optimization']
+      title: 'Digital PR',
+      description: 'Modern PR strategies that leverage digital channels for maximum reach and engagement.',
+      icon: 'trending_up',
+      features: ['Influencer Relations', 'Social Media PR', 'Online Reputation', 'Digital Campaigns']
+    },
+    {
+      title: 'Executive Communications',
+      description: 'Personal branding and thought leadership programs for C-suite executives and industry leaders.',
+      icon: 'person',
+      features: ['Executive Positioning', 'Speaking Opportunities', 'Thought Leadership', 'Personal Branding']
     }
   ];
 
   processSteps = [
     {
-      title: 'Discovery',
-      description: 'We analyze your business, goals, and target audience to create a tailored strategy.'
+      title: 'Strategic Analysis',
+      description: 'Deep dive into your brand, market position, and competitive landscape to identify opportunities.'
     },
     {
-      title: 'Strategy',
-      description: 'Develop a comprehensive plan with clear objectives and measurable outcomes.'
+      title: 'Campaign Design',
+      description: 'Craft compelling narratives and strategic messaging that resonates with your target audience.'
     },
     {
-      title: 'Execution',
-      description: 'Implement the strategy with precision, creativity, and attention to detail.'
+      title: 'Media Execution',
+      description: 'Deploy multi-channel campaigns with precision timing and expert relationship management.'
     },
     {
-      title: 'Optimization',
-      description: 'Continuously monitor and refine campaigns for maximum performance.'
+      title: 'Impact Measurement',
+      description: 'Track, analyze, and optimize campaign performance for maximum ROI and brand impact.'
     }
   ];
 
